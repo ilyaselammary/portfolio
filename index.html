@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilyas EL AMMARY | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F3F4F6',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-overlay {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3B82F6;
+            border: 4px solid #E5E7EB;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 33px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #E5E7EB;
+        }
+        @media (max-width: 768px) {
+            .timeline-item::before {
+                left: -28px;
+            }
+            .timeline::before {
+                left: 23px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold text-primary">Ilyas EL AMMARY</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-primary transition">Home</a>
+                    <a href="#about" class="hover:text-primary transition">About</a>
+                    <a href="#education" class="hover:text-primary transition">Education</a>
+                    <a href="#experience" class="hover:text-primary transition">Experience</a>
+                    <a href="#projects" class="hover:text-primary transition">Projects</a>
+                    <a href="#contact" class="hover:text-primary transition">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4 shadow-lg">
+            <a href="#home" class="block py-2 hover:text-primary transition">Home</a>
+            <a href="#about" class="block py-2 hover:text-primary transition">About</a>
+            <a href="#education" class="block py-2 hover:text-primary transition">Education</a>
+            <a href="#experience" class="block py-2 hover:text-primary transition">Experience</a>
+            <a href="#projects" class="block py-2 hover:text-primary transition">Projects</a>
+            <a href="#contact" class="block py-2 hover:text-primary transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold text-dark mb-4">Hi, I'm <span class="text-primary">Ilyas EL AMMARY</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-600 mb-6">Software Engineering Student</h2>
+                    <p class="text-lg text-gray-600 mb-8">Passionate about building innovative solutions with full-stack technologies and AI integration.</p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition">View Projects</a>
+                        <a href="#contact" class="border border-primary text-primary hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition">Contact Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-slide-up">
+                    <div class="bg-white p-6 rounded-xl shadow-xl w-full max-w-md">
+                        <div class="grid grid-cols-3 gap-4">
+                            <!-- Tech Icons -->
+                            <div class="bg-gray-100 p-4 rounded-lg flex flex-col items-center">
+                                <i class="fab fa-java text-4xl text-blue-600 mb-2"></i>
+                                <span class="text-sm font-medium">Java</span>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg flex flex-col items-center">
+                                <i class="fab fa-python text-4xl text-blue-500 mb-2"></i>
+                                <span class="text-sm font-medium">Python</span>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg flex flex-col items-center">
+                                <i class="fab fa-js text-4xl text-yellow-500 mb-2"></i>
+                                <span class="text-sm font-medium">JavaScript</span>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg flex flex-col items-center">
+                                <i class="fab fa-react text-4xl text-blue-400 mb-2"></i>
+                                <span class="text-sm font-medium">React</span>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg flex flex-col items-center">
+                                <i class="fas fa-database text-4xl text-blue-700 mb-2"></i>
+                                <span class="text-sm font-medium">SQL</span>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg flex flex-col items-center">
+                                <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
+                                <span class="text-sm font-medium">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">About <span class="text-primary">Me</span></h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="bg-gray-200 rounded-full w-64 h-64 flex items-center justify-center shadow-lg">
+                        <i class="fas fa-user-tie text-6xl text-gray-500"></i>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">Software Engineering Student & Developer</h3>
+                    <p class="text-gray-600 mb-6">I'm a dedicated software engineering student at ENSIAS with a strong foundation in full-stack development and AI integration. My passion lies in creating efficient, scalable solutions that solve real-world problems.</p>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-xl font-semibold mb-4">Languages</h4>
+                        <div class="flex flex-wrap gap-4">
+                            <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Arabic (Native)</span>
+                            <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">French (Professional)</span>
+                            <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">English (Professional)</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4">Technical Skills</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Java & Spring Boot</span>
+                                    <span class="text-gray-600">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="skill-bar bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">React & JavaScript</span>
+                                    <span class="text-gray-600">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="skill-bar bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Python & AI</span>
+                                    <span class="text-gray-600">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="skill-bar bg-primary h-2.5 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Database Systems</span>
+                                    <span class="text-gray-600">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="skill-bar bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">My <span class="text-primary">Education</span></h2>
+            
+            <div class="relative timeline pl-16 md:pl-20">
+                <!-- ENSIAS -->
+                <div class="relative timeline-item mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-bold text-primary">Master of Engineering (Software Engineering)</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">2023 - Present</span>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">ENSIAS (UM5), Rabat, Morocco</h4>
+                        <p class="text-gray-600 mb-4">Advanced studies in software engineering with a focus on full-stack development, AI, and system architecture.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Data Structures</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Algorithms</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">OOP</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Web Development</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">OS</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Computer Networks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CPGE -->
+                <div class="relative timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-bold text-primary">Preparatory Classes Physics and Engineering Sciences (DEUG)</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">2021 - 2023</span>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">CPGE, Meknes, Morocco</h4>
+                        <p class="text-gray-600 mb-4">Intensive preparatory program focusing on mathematics, physics, and computer science fundamentals.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Algorithms</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Data Structures</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Applied Mathematics</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Linear Algebra</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Calculus</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Statistics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Work <span class="text-primary">Experience</span></h2>
+            
+            <div class="relative timeline pl-16 md:pl-20">
+                <!-- Compensation Fund -->
+                <div class="relative timeline-item mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-bold text-primary">Software Engineer Intern</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Jul 2024 - Sep 2024</span>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">Compensation Fund, Rabat, Morocco</h4>
+                        <p class="text-gray-600 mb-4">Developed and implemented a comprehensive digital solution for leave management and HR processes.</p>
+                        
+                        <div class="mb-4">
+                            <h5 class="font-semibold mb-2">Key Accomplishments:</h5>
+                            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                <li>Designed and implemented a paperless leave management system using Spring Boot and MySQL</li>
+                                <li>Developed multi-role access control with Keycloak for secure authentication</li>
+                                <li>Built REST APIs with React dashboards for intuitive user interfaces</li>
+                                <li>Created interactive analytics dashboards with React and Tailwind CSS</li>
+                                <li>Implemented Agile methodology for efficient project management</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold mb-2">Technologies Used:</h5>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Java</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Spring Boot</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">React</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">MySQL</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Keycloak</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Tailwind CSS</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">HTML5/CSS3</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Agile</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Featured <span class="text-primary">Projects</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Internship Management Platform -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden project-card">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
+                        <i class="fas fa-briefcase text-6xl text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="absolute top-0 right-0 mt-4 mr-4 flex space-x-2">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Java</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Spring Boot</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Internship Management Platform</h3>
+                        <p class="text-gray-600 mb-4">Multi-role platform connecting students, companies, and teachers for streamlined internship processes.</p>
+                        
+                        <div class="project-overlay absolute inset-0 bg-white bg-opacity-90 p-6 flex flex-col justify-center opacity-0">
+                            <h4 class="text-lg font-bold mb-2">Project Details</h4>
+                            <ul class="list-disc pl-5 mb-4 text-gray-700">
+                                <li>Company space for posting opportunities and managing interviews</li>
+                                <li>Digital document management system</li>
+                                <li>Student application tracking</li>
+                                <li>Teacher evaluation system</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">Java</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">SpringBoot</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">JWT</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">Oracle (PL-SQL)</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">JavaScript</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">React</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DermAItool -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden project-card">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-6xl text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="absolute top-0 right-0 mt-4 mr-4 flex space-x-2">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Python</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">AI</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">DermAItool</h3>
+                        <p class="text-gray-600 mb-4">AI diagnostic solution for skin lesion classification with explainable AI features.</p>
+                        
+                        <div class="project-overlay absolute inset-0 bg-white bg-opacity-90 p-6 flex flex-col justify-center opacity-0">
+                            <h4 class="text-lg font-bold mb-2">Project Details</h4>
+                            <ul class="list-disc pl-5 mb-4 text-gray-700">
+                                <li>GRAD-CAM heatmaps for visual model explanation</li>
+                                <li>Web platform with account-based features</li>
+                                <li>Multi-class classification of skin lesions</li>
+                                <li>User-friendly interface for medical professionals</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">Java</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">Python</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">Spring Boot</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">Flask</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">React</span>
+                                <span class="bg-gray-200 px-2 py-1 rounded-full text-xs">TensorFlow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Leadership & <span class="text-primary">Activities</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- ENSIAS BRIDGE -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">President, ENSIAS BRIDGE</h3>
+                    </div>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                        <li>Conducted data-driven alumni survey with interactive visualization</li>
+                        <li>Organized networking events (BRIEFING sessions)</li>
+                        <li>Produced "KI DERTI LIHA" podcast series</li>
+                        <li>Managed team of 15 members</li>
+                    </ul>
+                </div>
+                
+                <!-- Forum GENI ENTREPRISES -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-secondary text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-bullhorn text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Media Manager, Forum GENI ENTREPRISES</h3>
+                    </div>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                        <li>Managed cross-platform media presence</li>
+                        <li>Developed content strategy for event promotion</li>
+                        <li>Coordinated with 20+ corporate partners</li>
+                        <li>Increased event attendance by 30% through targeted campaigns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Get In <span class="text-primary">Touch</span></h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <a href="mailto:ilyaselammary23@gmail.com" class="text-gray-600 hover:text-primary transition">ilyaselammary23@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-green-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <a href="tel:+212649150128" class="text-gray-600 hover:text-primary transition">+212 649-150128</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                    <i class="fab fa-linkedin-in text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">LinkedIn</h4>
+                                    <a href="#" class="text-gray-600 hover:text-primary transition">Ilyas EL ammary</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-orange-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-orange-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Location</h4>
+                                    <p class="text-gray-600">Rabat, Morocco</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-6">Send Me a Message</h3>
+                        
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block font-medium mb-1">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block font-medium mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block font-medium mb-1">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block font-medium mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition w-full">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold">Ilyas EL AMMARY</h3>
+                    <p class="text-gray-400">Software Engineering Student</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Ilyas EL AMMARY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon.`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'about') {
+                        animateSkillBars();
+                    }
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
